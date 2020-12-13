@@ -23,7 +23,7 @@ name: Sample Workflow
 
 jobs:
   build:
-    name: Examaple
+    name: Example
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
