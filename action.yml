@@ -5,7 +5,6 @@ runs:
   using: "composite"
   steps: 
     - run: | # https://github.com/flutter/gallery/blob/master/.github/workflows/unit.yml
-        flutter pub get
         flutter analyze
         flutter format --set-exit-if-changed --dry-run .
       shell: bash
