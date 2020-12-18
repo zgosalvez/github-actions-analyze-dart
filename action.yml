@@ -1,10 +1,16 @@
 name: 'Analyze Flutter'
 description: 'Analyze your Flutter project''s Dart code'
 author: 'Zennon Gosalvez'
+inputs:
+  working-directory:
+    description: 'The working directory. Optional. Default: `./`'
+    default: ./
 runs:
-  using: "composite"
+  using: 'composite'
   steps: 
     - run: | # https://github.com/flutter/gallery/blob/master/.github/workflows/unit.yml
+        cd ${{ inputs.working-directory }}
+
         flutter analyze
         flutter format --set-exit-if-changed --dry-run .
       shell: bash

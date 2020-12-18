@@ -7,7 +7,8 @@ This GitHub Action (written in composite run steps) allows you to leverage GitHu
 Create a workflow `.yml` file in your `.github/workflows` directory. An [example workflow](#common-workflow) is available below. For more information, reference the GitHub Help Documentation for [Creating a workflow file](https://help.github.com/en/articles/configuring-a-workflow#creating-a-workflow-file).
 
 ### Inputs
-None.
+
+- `working-directory`: The working directory. Optional. Default: `./`
 
 ### Outputs
 None.
