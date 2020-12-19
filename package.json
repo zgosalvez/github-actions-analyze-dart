@@ -1,0 +1,28 @@
+{
+  "name": "github-actions-analyze-flutter",
+  "version": "1.0.0",
+  "description": "Analyze your Flutter project's Dart code",
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "prepare": "ncc build src/index.js -o dist --source-map --license licenses.txt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zgosalvez/github-actions-analyze-flutter.git"
+  },
+  "keywords": [
+    "actions",
+    "node"
+  ],
+  "author": "Zennon Gosalvez",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/exec": "^1.0.4"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.25.1",
+    "eslint": "^7.15.0"
+  }
+}

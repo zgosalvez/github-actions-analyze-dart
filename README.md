@@ -1,6 +1,6 @@
 # GitHub Action — Analyze Flutter
 
-This GitHub Action (written in composite run steps) allows you to leverage GitHub Actions to analyze your Flutter project's Dart code.
+This GitHub Action (written in JavaScript) allows you to leverage GitHub Actions to analyze your Flutter project's Dart code.
 
 ## Usage
 ### Pre-requisites
@@ -8,6 +8,7 @@ Create a workflow `.yml` file in your `.github/workflows` directory. An [example
 
 ### Inputs
 
+- `fail-on-warnings`: The action fails if any warning was found. This will always fail on errors. Optional. Default: `false`
 - `working-directory`: The working directory. Optional. Default: `./`
 
 ### Outputs

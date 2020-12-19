@@ -2,18 +2,15 @@ name: 'Analyze Flutter'
 description: 'Analyze your Flutter project''s Dart code'
 author: 'Zennon Gosalvez'
 inputs:
+  fail-on-warnings:
+    description: 'The action fails if any warning was found. This will always fail on errors. Optional. Default: `false`'
+    default: false
   working-directory:
     description: 'The working directory. Optional. Default: `./`'
     default: ./
 runs:
-  using: 'composite'
-  steps: 
-    - run: | # https://github.com/flutter/gallery/blob/master/.github/workflows/unit.yml
-        cd ${{ inputs.working-directory }}
-
-        flutter analyze
-        flutter format --set-exit-if-changed --dry-run .
-      shell: bash
+  using: 'node12'
+  main: 'dist/index.js'
 branding:
   icon: 'search'
   color: 'green'
