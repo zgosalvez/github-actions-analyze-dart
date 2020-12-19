@@ -12,7 +12,8 @@ Create a workflow `.yml` file in your `.github/workflows` directory. An [example
 - `working-directory`: The working directory. Optional. Default: `./`
 
 ### Outputs
-None.
+None. Sample workflow summary:
+![Screenshot](assets/screenshot.png)
 
 ### Common workflow
 
