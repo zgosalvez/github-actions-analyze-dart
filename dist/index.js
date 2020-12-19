@@ -1557,6 +1557,7 @@ function copyFile(srcFile, destFile, force) {
 
 const core = __webpack_require__(186);
 const exec = __webpack_require__(514);
+const fs = __webpack_require__(747);
 const path = __webpack_require__(622);
 
 async function run() {
@@ -1590,14 +1591,29 @@ async function analyze(workingDirectory) {
     }
   };
 
-  await exec.exec('dartanalyzer', ['--format', 'machine', '--options', 'analysis_options.yaml', '.'], options);
+  const analysisOptionsFile = core.getInput('analysis-options-file');
+  const args = ['--format', 'machine'];
+
+  if (fs.existsSync(path.resolve(workingDirectory, analysisOptionsFile))) {
+    args.push('--options');
+    args.push(analysisOptionsFile);
+  }
+
+  args.push('.');
+
+  await exec.exec('dartanalyzer', args, options);
 
   let errorCount = 0;
   let warningCount = 0;
   const lines = output.trim().split(/\r?\n/);
+  const dataDelimiter = '|';
 
   for (const line of lines) {
-    const lineData = line.split('|');
+    if (!line.includes(dataDelimiter)) {
+      continue;
+    }
+
+    const lineData = line.split(dataDelimiter);
     const lint = lineData[2];
     const lintLowerCase = lint.toLowerCase();
     const file = lineData[3].replace(workingDirectory, '');
@@ -1631,7 +1647,7 @@ async function format(workingDirectory) {
     }
   };
 
-  await exec.exec('dartfmt', ['format', '--dry-run', '.'], options);
+  await exec.exec('dartfmt', ['--dry-run', '.'], options);
 
   let warningCount = 0;
   const lines = output.trim().split(/\r?\n/);

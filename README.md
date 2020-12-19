@@ -10,6 +10,7 @@ Create a workflow `.yml` file in your `.github/workflows` directory. An [example
 
 - `fail-on-warnings`: The action fails if any warning was found. This will always fail on errors. Optional. Default: `false`
 - `working-directory`: The working directory. Optional. Default: `./`
+- `analysis-options-file`: The path to the `analysis_options.yaml` file relative to the `working-directory`. The analyzer will only use the file if it exists. Optional. Default: `analysis_options.yaml`
 
 ### Outputs
 None.
