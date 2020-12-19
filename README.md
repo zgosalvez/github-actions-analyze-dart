@@ -38,5 +38,12 @@ jobs:
         use: zgosalvez/github-actions-analyze-flutter@v1
 ```
 
+### Custom Workflow
+
+After following the [common workflow](#common-workflow) above, lint rules can be customized. For more details see:
+- [`pedantic`](https://github.com/dart-lang/pedantic) for rules enforced internally at Google
+- [`effective_dart`](https://github.com/tenhobi/effective_dart) for rules corresponding to the [Effective Dart](https://dart.dev/guides/language/effective-dart) style guide
+- [`flutter`](https://github.com/flutter/flutter/blob/master/packages/flutter/lib/analysis_options_user.yaml) for rules used in `flutter analyze`
+
 ## License
 The scripts and documentation in this project are released under the [MIT License](LICENSE)
