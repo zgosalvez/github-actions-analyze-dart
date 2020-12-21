@@ -12,9 +12,12 @@ async function run() {
 
     const issueCount = analyzeErrorCount + analyzeWarningCount + formatWarningCount;
     const failOnWarnings = core.getInput('fail-on-warnings') === 'true';
+    const message = `${issueCount} issue${issueCount === 1 ? '' : 's'} found.`;
 
     if (analyzeErrorCount > 0 || (failOnWarnings && issueCount > 0)) {
-      core.setFailed(`${issueCount} issue${issueCount === 1 ? '' : 's'} found.`);
+      core.setFailed(message);
+    } else {
+      console.log(message);
     }
   } catch (error) {
     core.setFailed(error.message);
