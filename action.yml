@@ -1,5 +1,5 @@
-name: 'Analyze Flutter'
-description: 'Analyze your Flutter project''s Dart code'
+name: 'Analyze Dart'
+description: 'Analyze your project''s Dart code, including Flutter'
 author: 'Zennon Gosalvez'
 inputs:
   fail-on-warnings:

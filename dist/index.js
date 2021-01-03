@@ -1658,7 +1658,7 @@ async function format(workingDirectory) {
   for (const line of lines) {
     if (!line.endsWith('.dart')) continue;
 
-    console.log(`::warning file=${line}::Invalid format. For more details, see https://flutter.dev/docs/development/tools/formatting`);
+    console.log(`::warning file=${line}::Invalid format. For more details, see https://dart.dev/guides/language/effective-dart/style#formatting`);
     warningCount++;
   }
 

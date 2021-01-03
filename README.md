@@ -1,6 +1,6 @@
-# GitHub Action — Analyze Flutter
+# GitHub Action — Analyze Dart
 
-This GitHub Action (written in JavaScript) allows you to leverage GitHub Actions to analyze your Flutter project's Dart code.
+This GitHub Action (written in JavaScript) allows you to leverage GitHub Actions to analyze your Dart project's Dart code, including Flutter.
 
 ## Usage
 ### Pre-requisites
@@ -22,7 +22,31 @@ Sample Workflow Summary:
 Sample Files Changed:
 ![Screenshot](assets/files_changed.png)
 
-### Common workflow
+### Dart workflow
+
+1. Your workflow must install Dart before using this action. Suggestion: [Dart starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/dart.yml).
+2. Use the action. For example:
+```yaml
+on: push
+
+name: Sample Workflow
+
+jobs:
+  build:
+    name: Example
+    runs-on: ubuntu-latest
+    container:
+      image:  google/dart:latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: dart pub get
+      - name: Analyze Dart
+        uses: zgosalvez/github-actions-analyze-dart@v1
+```
+
+### Flutter workflow
 
 1. Your workflow must install Flutter before using this action. Suggestion: [Flutter action](https://github.com/marketplace/actions/flutter-action).
 2. Use the action. For example:
@@ -41,8 +65,8 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v1
       - run: flutter pub get
-      - name: Analyze Flutter
-        uses: zgosalvez/github-actions-analyze-flutter@v1
+      - name: Analyze Dart
+        uses: zgosalvez/github-actions-analyze-dart@v1
 ```
 
 ### Custom Workflow
