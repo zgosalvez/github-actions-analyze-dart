@@ -11,6 +11,9 @@ inputs:
   analysis-options-file:
     description: 'The path to the `analysis_options.yaml` file relative to the `working-directory`. The analyzer will only use the file if it exists. Optional. Default: `analysis_options.yaml`'
     default: analysis_options.yaml
+  dartfmt-line-length:
+    description: 'The default line length used by dartfmt. Default: `80`'
+    default: 80
 runs:
   using: 'node12'
   main: 'dist/index.js'
