@@ -12,7 +12,7 @@ For more information on these inputs, see the [Workflow syntax for GitHub Action
 - `fail-on-warnings`: The action fails if any warning was found. This will always fail on errors. Optional. Default: `false`
 - `working-directory`: The working directory. Optional. Default: `./`
 - `analysis-options-file`: The path to the `analysis_options.yaml` file relative to the `working-directory`. The analyzer will only use the file if it exists. Optional. Default: `analysis_options.yaml`
-- `line-length`: The maximum line length. Optional. The formatter will use it's default: `80`
+- `line-length`: The maximum line length. Optional. The formatter will use its default: `80`
 
 ### Outputs
 None.

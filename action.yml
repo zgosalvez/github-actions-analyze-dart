@@ -12,7 +12,7 @@ inputs:
     description: 'The path to the `analysis_options.yaml` file relative to the `working-directory`. The analyzer will only use the file if it exists. Optional. Default: `analysis_options.yaml`'
     default: analysis_options.yaml
   line-length:
-    description: 'The maximum line length. Optional. The formatter will use it''s default: `80`'
+    description: 'The maximum line length. Optional. The formatter will use its default: `80`'
 runs:
   using: 'node12'
   main: 'dist/index.js'
