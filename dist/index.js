@@ -1650,7 +1650,9 @@ async function format(workingDirectory) {
     }
   };
 
-  await exec.exec('dartfmt', ['--dry-run', '.'], options);
+  const lineLength = core.getInput('dartfmt-line-length');
+
+  await exec.exec('dartfmt', ['--line-length', lineLength, '--dry-run', '.'], options);
 
   let warningCount = 0;
   const lines = output.trim().split(/\r?\n/);
