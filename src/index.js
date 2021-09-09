@@ -101,10 +101,11 @@ async function format(workingDirectory) {
     args.push(lineLength);
   }
 
+  args.push('format');
   args.push('--dry-run');
   args.push('.');
 
-  await exec.exec('dartfmt', args, options);
+  await exec.exec('dart', args, options);
 
   let warningCount = 0;
   const lines = output.trim().split(/\r?\n/);
