@@ -1659,7 +1659,8 @@ async function format(workingDirectory) {
   }
 
   args.push('format');
-  args.push('--dry-run');
+  args.push('-o none');
+  args.push('--set-exit-if-changed');
   args.push('.');
 
   await exec.exec('dart', args, options);
