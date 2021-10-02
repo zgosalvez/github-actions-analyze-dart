@@ -93,7 +93,7 @@ async function format(workingDirectory) {
     }
   };
 
-  const args = [];
+  const args = ['format', '--output none'];
   const lineLength = core.getInput('line-length');
 
   if (lineLength) {
@@ -101,9 +101,6 @@ async function format(workingDirectory) {
     args.push(lineLength);
   }
 
-  args.push('format');
-  args.push('-o none');
-  args.push('--set-exit-if-changed');
   args.push('.');
 
   await exec.exec('dart', args, options);
@@ -113,8 +110,9 @@ async function format(workingDirectory) {
 
   for (const line of lines) {
     if (!line.endsWith('.dart')) continue;
+    const file = line.substring(8); // Remove the "Changed " prefix
 
-    console.log(`::warning file=${line}::Invalid format. For more details, see https://dart.dev/guides/language/effective-dart/style#formatting`);
+    console.log(`::warning file=${file}::Invalid format. For more details, see https://dart.dev/guides/language/effective-dart/style#formatting`);
     warningCount++;
   }
 
