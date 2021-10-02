@@ -2921,7 +2921,7 @@ async function format(workingDirectory) {
     }
   };
 
-  const args = ['format', '--output none'];
+  const args = ['format', '--output=none'];
   const lineLength = core.getInput('line-length');
 
   if (lineLength) {
