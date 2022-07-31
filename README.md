@@ -1,6 +1,6 @@
 # GitHub Action — Analyze Dart
 
-This GitHub Action (written in JavaScript) allows you to leverage GitHub Actions to analyze your Dart project's Dart code, including Flutter. This runs both the `dartanalyzer` and `dartfmt` commands under the hood.
+This GitHub Action (written in JavaScript) allows you to leverage GitHub Actions to analyze your Dart project's Dart code, including Flutter. This runs both the `dart analyze` and `dartfmt` commands under the hood.
 
 ## Usage
 ### Pre-requisites

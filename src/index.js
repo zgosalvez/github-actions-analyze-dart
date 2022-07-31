@@ -47,7 +47,7 @@ async function analyze(workingDirectory) {
 
   args.push('.');
 
-  await exec.exec('dartanalyzer', args, options);
+  await exec.exec('dart analyze', args, options);
 
   let errorCount = 0;
   let warningCount = 0;
