@@ -8,9 +8,6 @@ inputs:
   working-directory:
     description: 'The working directory. Optional. Default: `./`'
     default: ./
-  analysis-options-file:
-    description: 'The path to the `analysis_options.yaml` file relative to the `working-directory`. The analyzer will only use the file if it exists. Optional. Default: `analysis_options.yaml`'
-    default: analysis_options.yaml
   line-length:
     description: 'The maximum line length. Optional. The formatter will use its default: `80`'
 runs:

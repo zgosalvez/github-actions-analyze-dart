@@ -1,6 +1,5 @@
 const core = require('@actions/core');
 const exec = require('@actions/exec');
-const fs = require('fs');
 const path = require('path');
 
 async function run() {
@@ -37,14 +36,7 @@ async function analyze(workingDirectory) {
     }
   };
 
-  const analysisOptionsFile = core.getInput('analysis-options-file');
   const args = ['--format', 'machine'];
-
-  if (fs.existsSync(path.resolve(workingDirectory, analysisOptionsFile))) {
-    args.push('--options');
-    args.push(analysisOptionsFile);
-  }
-
   args.push('.');
 
   await exec.exec('dart analyze', args, options);
