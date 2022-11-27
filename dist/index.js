@@ -3664,7 +3664,6 @@ function version(uuid) {
 
 const core = __webpack_require__(186);
 const exec = __webpack_require__(514);
-const fs = __webpack_require__(747);
 const path = __webpack_require__(622);
 
 async function run() {
@@ -3701,14 +3700,7 @@ async function analyze(workingDirectory) {
     }
   };
 
-  const analysisOptionsFile = core.getInput('analysis-options-file');
   const args = ['--format', 'machine'];
-
-  if (fs.existsSync(path.resolve(workingDirectory, analysisOptionsFile))) {
-    args.push('--options');
-    args.push(analysisOptionsFile);
-  }
-
   args.push('.');
 
   await exec.exec('dart analyze', args, options);
