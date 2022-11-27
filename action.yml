@@ -11,7 +11,7 @@ inputs:
   line-length:
     description: 'The maximum line length. Optional. The formatter will use its default: `80`'
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'dist/index.js'
 branding:
   icon: 'search'
