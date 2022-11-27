@@ -3670,14 +3670,15 @@ async function run() {
   try {
     const workingDirectory = path.resolve(process.env.GITHUB_WORKSPACE, core.getInput('working-directory'))
 
-    const [analyzeErrorCount, analyzeWarningCount] = await analyze(workingDirectory);
+    const [analyzeErrorCount, analyzeWarningCount, analyzeInfoCount] = await analyze(workingDirectory);
     const formatWarningCount = await format(workingDirectory);
 
-    const issueCount = analyzeErrorCount + analyzeWarningCount + formatWarningCount;
+    const issueCount = analyzeErrorCount + analyzeWarningCount + analyzeInfoCount + formatWarningCount;
+    const failOnInfos = core.getInput('fail-on-infos') === 'true';
     const failOnWarnings = core.getInput('fail-on-warnings') === 'true';
     const message = `${issueCount} issue${issueCount === 1 ? '' : 's'} found.`;
 
-    if (analyzeErrorCount > 0 || (failOnWarnings && issueCount > 0)) {
+    if (analyzeErrorCount > 0 || ((failOnInfos || failOnWarnings) && issueCount > 0)) {
       core.setFailed(message);
     } else {
       console.log(message);
@@ -3707,6 +3708,7 @@ async function analyze(workingDirectory) {
 
   let errorCount = 0;
   let warningCount = 0;
+  let infoCount = 0;
   const lines = output.trim().split(/\r?\n/);
   const dataDelimiter = '|';
 
@@ -3727,13 +3729,16 @@ async function analyze(workingDirectory) {
     if (lineData[0] === 'ERROR') {
       console.log(`::error ${message}`);
       errorCount++;
-    } else {
+    } else if (lineData[0] === 'WARNING') {
       console.log(`::warning ${message}`);
       warningCount++;
+    } else {
+      console.log(`::notice ${message}`);
+      infoCount++;
     }
   }
 
-  return [errorCount, warningCount];
+  return [errorCount, warningCount, infoCount];
 }
 
 async function format(workingDirectory) {
