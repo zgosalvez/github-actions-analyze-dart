@@ -9,6 +9,7 @@ Create a workflow `.yml` file in your `.github/workflows` directory. An [example
 ### Inputs
 For more information on these inputs, see the [Workflow syntax for GitHub Actions](https://docs.github.com/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswith)
 
+- `fail-on-infos`: The action fails if any info was found. This will always fail on errors. Optional. Default: `false`
 - `fail-on-warnings`: The action fails if any warning was found. This will always fail on errors. Optional. Default: `false`
 - `working-directory`: The working directory. Optional. Default: `./`
 - `line-length`: The maximum line length. Optional. The formatter will use its default: `80`
