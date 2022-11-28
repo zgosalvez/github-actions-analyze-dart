@@ -67,7 +67,7 @@ jobs:
         uses: subosito/flutter-action@v1
       - run: flutter pub get
       - name: Analyze Dart
-        uses: zgosalvez/github-actions-analyze-dart@v1
+        uses: zgosalvez/github-actions-analyze-dart@v2
 ```
 
 ### Custom Workflow
