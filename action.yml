@@ -2,6 +2,9 @@ name: 'Analyze Dart'
 description: 'Analyze your project''s Dart code, including Flutter'
 author: 'Zennon Gosalvez'
 inputs:
+  fail-on-infos:
+    description: 'The action fails if any info was found. This will always fail on errors. Optional. Default: `false`'
+    default: false
   fail-on-warnings:
     description: 'The action fails if any warning was found. This will always fail on errors. Optional. Default: `false`'
     default: false
