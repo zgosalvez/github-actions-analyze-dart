@@ -22,6 +22,8 @@ jobs:
     steps:
     - name: Clone the repository
       uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b
+      with:
+        ref: ${{ github.head_ref }} # https://github.com/stefanzweifel/git-auto-commit-action#checkout-the-correct-branch
     - name: Get runs.using version
       id: get-runs-using-version
       uses: zgosalvez/github-actions-get-action-runs-using-version@a15b651c3198e1547715f3428b328e7ef89ab8d8
