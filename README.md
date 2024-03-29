@@ -13,6 +13,7 @@ For more information on these inputs, see the [Workflow syntax for GitHub Action
 - `fail-on-warnings`: The action fails if any warning was found. This will always fail on errors. Optional. Default: `false`
 - `working-directory`: The working directory. Optional. Default: `./`
 - `line-length`: The maximum line length. Optional. The formatter will use its default: `80`
+- `ignore-suffixes`: Ignore the specified suffix, split multi suffixes with `|`
 
 ### Outputs
 None.

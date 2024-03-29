@@ -101,12 +101,15 @@ async function format(workingDirectory) {
   args.push('.');
 
   await exec.exec('dart', args, options);
-  
+
   let warningCount = 0;
   const lines = output.trim().split(/\r?\n/);
 
+  const ignoreSuffixes = core.getInput("ignore-suffixes").split("|");
+
   for (const line of lines) {
     if (!line.endsWith('.dart')) continue;
+    if (ignoreSuffixes.some(e => line.endsWith(e))) continue;
     const file = line.substring(8); // Remove the "Changed " prefix
 
     console.log(`::warning file=${file}::Invalid format. For more details, see https://dart.dev/guides/language/effective-dart/style#formatting`);
