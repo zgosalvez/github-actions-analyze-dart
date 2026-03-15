@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "lint": "eslint .",
-    "prepare": "ncc build src/index.js -o dist --source-map --license licenses.txt"
+    "build": "rollup -c",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -19,10 +20,14 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^2.0.1",
-    "@actions/exec": "^1.0.4"
+    "@actions/exec": "^2.0.0"
   },
   "devDependencies": {
-    "@vercel/ncc": "^0.38.3",
-    "eslint": "^9.34.0"
+    "@rollup/plugin-commonjs": "^29.0.2",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "eslint": "^9.39.2",
+    "rollup": "^4.59.0",
+    "rollup-plugin-license": "^3.7.0"
   }
 }
