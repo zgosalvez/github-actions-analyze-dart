@@ -1,4 +1,5 @@
 import { builtinModules } from 'node:module';
+import path from 'node:path';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
@@ -19,6 +20,31 @@ function onwarn(warning, warn) {
   }
 
   warn(warning);
+}
+
+function stubUnusedActionsCoreOidc() {
+  const coreModuleSuffix = `${path.sep}@actions${path.sep}core${path.sep}lib${path.sep}core.js`;
+
+  return {
+    name: 'stub-unused-actions-core-oidc',
+    transform(code, id) {
+      if (!id.endsWith(coreModuleSuffix)) {
+        return null;
+      }
+
+      const transformed = code.replace(
+        'const oidc_utils_1 = require("./oidc-utils");',
+        'const oidc_utils_1 = { getIDToken: async function getIDToken() { throw new Error("OIDC token requests are not supported in this action bundle."); } };'
+      );
+
+      return transformed === code
+        ? null
+        : {
+            code: transformed,
+            map: { mappings: '' },
+          };
+    },
+  };
 }
 
 export default {
@@ -42,6 +68,7 @@ export default {
     nodeResolve({
       preferBuiltins: true,
     }),
+    stubUnusedActionsCoreOidc(),
     commonjs(),
     json(),
     license({
