@@ -9,6 +9,7 @@ var require$$1$2 = require('events');
 var require$$2 = require('child_process');
 var require$$0$2 = require('assert');
 var require$$6 = require('timers');
+var require$$1$3 = require('@actions/exec');
 
 function getDefaultExportFromCjs (x) {
 	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
@@ -2481,7 +2482,7 @@ function requireSrc () {
 	if (hasRequiredSrc) return src;
 	hasRequiredSrc = 1;
 	const core = requireCore();
-	const exec = requireExec();
+	const exec = require$$1$3;
 	const path = require$$1$1;
 
 	async function run() {
