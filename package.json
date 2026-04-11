@@ -19,15 +19,16 @@
   "author": "Zennon Gosalvez",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^2.0.1",
-    "@actions/exec": "^3.0.0"
+    "@actions/core": "^3.0.0",
+    "@actions/exec": "^3.0.0",
+    "@actions/exec": "^2.0.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^29.0.2",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
-    "eslint": "^9.39.2",
-    "rollup": "^4.59.0",
+    "eslint": "^10.2.0",
+    "rollup": "^4.60.1",
     "rollup-plugin-license": "^3.7.0"
   }
 }
