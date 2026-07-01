@@ -98,7 +98,7 @@ SOFTWARE.
 ---
 
 Name: @actions/http-client
-Version: 4.0.0
+Version: 4.0.1
 License: MIT
 Private: false
 Description: Actions Http Client

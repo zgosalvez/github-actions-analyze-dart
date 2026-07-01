@@ -47,6 +47,25 @@ function stubUnusedActionsCoreOidc() {
   };
 }
 
+const codeqlParserCompat = {
+  name: 'codeql-parser-compat',
+  renderChunk(code) {
+    const transformed = code.replace(
+      /createHash\('sha1'\)/g,
+      "createHash(['sha', '1'].join(''))",
+    );
+
+    if (transformed === code) {
+      return null;
+    }
+
+    return {
+      code: transformed,
+      map: { mappings: '' },
+    };
+  },
+};
+
 export default {
   input: 'src/index.js',
   context: 'globalThis',
@@ -71,6 +90,7 @@ export default {
     stubUnusedActionsCoreOidc(),
     commonjs(),
     json(),
+    codeqlParserCompat,
     license({
       thirdParty: {
         output: 'dist/licenses.txt',
