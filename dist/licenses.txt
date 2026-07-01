@@ -1,5 +1,5 @@
 Name: @actions/core
-Version: 3.0.0
+Version: 3.0.1
 License: MIT
 Private: false
 Description: Actions core lib
@@ -56,7 +56,7 @@ THE SOFTWARE.
 ---
 
 Name: undici
-Version: 6.24.1
+Version: 6.27.0
 License: MIT
 Private: false
 Description: An HTTP/1.1 client, written from scratch for Node.js
@@ -98,7 +98,7 @@ SOFTWARE.
 ---
 
 Name: @actions/http-client
-Version: 4.0.0
+Version: 4.0.1
 License: MIT
 Private: false
 Description: Actions Http Client
