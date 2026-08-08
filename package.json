@@ -27,7 +27,7 @@
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "eslint": "^10.8.0",
-    "rollup": "^4.62.2",
+    "rollup": "^4.62.4",
     "rollup-plugin-license": "^3.7.1"
   }
 }
