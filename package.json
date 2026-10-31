@@ -29,5 +29,8 @@
     "eslint": "^10.11.0",
     "rollup": "^4.63.5",
     "rollup-plugin-license": "^3.7.1"
+  },
+  "overrides": {
+    "undici": "6.29.1"
   }
 }
